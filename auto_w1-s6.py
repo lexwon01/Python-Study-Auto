@@ -1,0 +1,56 @@
+import json
+import csv
+
+file = "devices.txt"
+
+
+def load_devices(file):
+    try:
+
+        result = []
+
+        if file.endswith(".json"):
+
+            with open(file) as f:
+                result = json.load(f)
+
+        if file.endswith(".csv"):
+            devices = open(file)
+            reader = csv.DictReader(devices)
+
+            for item in reader:
+                result.append(item)
+
+        else:
+            print(f"Error: {file} is unsupported.")
+
+        return result
+    except FileNotFoundError:
+        print(f"Error: {file} not found!")
+
+
+devices = load_devices(file)
+
+
+def filter_by_field(devices, field, value):
+
+    result = []
+
+    for device in devices:
+        if device[field] == value:
+            result.append(device)
+
+    return result
+
+
+def print_devices(devices):
+
+    for device in devices:
+        print(
+            f"{device['hostname']} | {device['ip']} | {device['type']} | {device['site']}"
+        )
+
+
+if devices:
+    switch = filter_by_field(devices, "type", "switch")
+    print_devices(switch)
