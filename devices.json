@@ -1,0 +1,12 @@
+[
+    {"hostname": "SW-CORE-01", "ip": "10.1.1.1", "type": "switch", "site": "HQ"},
+    {"hostname": "SW-ACCESS-01", "ip": "10.1.1.2", "type": "switch", "site": "HQ"},
+    {"hostname": "RTR-EDGE-01", "ip": "10.1.1.254", "type": "router", "site": "HQ"},
+    {"hostname": "FW-01", "ip": "10.1.1.253", "type": "firewall", "site": "HQ"},
+    {"hostname": "SW-ACCESS-02", "ip": "10.2.1.1", "type": "switch", "site": "Branch1"},
+    {"hostname": "RTR-BRANCH-01", "ip": "10.2.1.254", "type": "router", "site": "Branch1"},
+    {"hostname": "AP-01", "ip": "10.2.1.10", "type": "access-point", "site": "Branch1"},
+    {"hostname": "SW-ACCESS-03", "ip": "10.3.1.1", "type": "switch", "site": "Branch2"},
+    {"hostname": "RTR-BRANCH-02", "ip": "10.3.1.254", "type": "router", "site": "Branch2"},
+    {"hostname": "FW-02", "ip": "10.3.1.253", "type": "firewall", "site": "Branch2"}
+]
