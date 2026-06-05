@@ -5,3 +5,4 @@ __pycache__/
 .DS_Store
 CLAUDE.md
 sessions/
+python-auto-log.md
