@@ -63,10 +63,21 @@ def count_by_field(devices, field):
     return counts
 
 
+def print_summary(devices):
+    print("=== Device Summary ===")
+
+    counts = count_by_field(devices, "type")
+    print("By type:")
+    for type, count in counts.items():
+        print(f" {type} : {count}")
+
+    counts = count_by_field(devices, "site")
+    print("By site:")
+    for site, count in counts.items():
+        print(f" {site} : {count}")
+
+
 if devices:
-    result = count_by_field(devices, "site")
-    print(result)
-    result = count_by_field(devices, "type")
-    print(result)
-    switch = filter_by_field(devices, "type", "switch")
-    print_devices(switch)
+    print_summary(devices)
+    print("\n=== Full Inventory ===")
+    print_devices(devices)
