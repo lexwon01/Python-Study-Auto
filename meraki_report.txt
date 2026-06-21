@@ -1,0 +1,9 @@
+=== Meraki Health Report ===
+2026-06-21 16:47
+Total devices: 3
+Offline: 1
+
+--- Device Status ---
+RE-MLAB-MX67 | MX67 | online | 2026-06-21T15:47:25.950000Z
+RE-MLAB-MR28 | MR28 | offline | 2026-06-21T14:42:47.147000Z *** OFFLINE ***
+RE-MLAB-MS120 | MS120-8FP | online | 2026-06-21T15:46:45.570000Z
