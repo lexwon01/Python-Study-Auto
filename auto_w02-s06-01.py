@@ -145,13 +145,17 @@ def write_report(statuses, clients, vpns, filename):
             f.write(
                 f"{client.get('description', client['mac'])} | {client['ip']} | {client['usage']['total'] / (1024 * 1024):.2f} GB\n"
             )
-        f.write(f"\n")
         f.write("--- VPN Status ---\n")
         if vpns is None:
             f.write("VPN status: unavailable\n")
         else:
-            for vpn in vpns:
-                f.write(f"{vpn}\n")
+            for hub in vpns["hubs"]:
+                f.write(f"Hub ID: {hub['hubId']}\n")
+
+            for subnet in vpns["subnets"]:
+                f.write(
+                    f"Local subnet: {subnet['localSubnet']} | In use: {subnet['useVpn']}\n"
+                )
 
 
 def merge_firmware(devices, statuses):
@@ -193,6 +197,18 @@ def get_vpn_statuses(api_key, network_id):
     return vpns
 
 
+def print_vpn_statuses(vpns):
+    # print(f"{vpns['mode']} | {vpns['hubs']} | {vpns['subnets']}")
+    print()
+    print("--- Site-to-Site VPN Details ---")
+
+    for hub in vpns["hubs"]:
+        print(f"Hub ID: {hub['hubId']}")
+
+    for subnet in vpns["subnets"]:
+        print(f"Local subnet: {subnet['localSubnet']} | In use: {subnet['useVpn']}")
+
+
 org_id = get_org_id(api_key, org_id)
 if org_id is None:
     print("Org not found")
@@ -223,9 +239,7 @@ if clients is None:
 vpns = get_vpn_statuses(api_key, network_id)
 if vpns is None:
     print("VPN status: unavailable")
-else:
-    print(vpns)
-
+    exit()
 org_devices = get_org_devices(api_key, org_id)
 if org_devices is None:
     print("Org devices not found")
@@ -242,3 +256,5 @@ print_summary(statuses)
 write_report(statuses, clients, vpns, "meraki_report.txt")
 
 print_top_clients(clients)
+
+print_vpn_statuses(vpns)
