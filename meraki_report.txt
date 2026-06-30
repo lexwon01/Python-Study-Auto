@@ -1,19 +1,22 @@
 === Meraki Health Report ===
-2026-06-30 15:58
+2026-06-30 17:16
 Total devices: 7
 Offline: 0
 
 --- Device Status ---
-RE-IPH-MX67 | MX67 | wired-19-2-8 | online | 2026-06-30T14:58:17.413000Z
-RE-MLAB-MX67 | MX67 | wired-19-2-8 | online | 2026-06-30T14:57:58.017000Z
+RE-IPH-MX67 | MX67 | wired-19-2-8 | online | 2026-06-30T16:16:41.436000Z
+RE-MLAB-MX67 | MX67 | wired-19-2-8 | online | 2026-06-30T16:16:44.189000Z
 RE-MR53 | MR53 | wireless-30-7-1 | dormant | 2026-03-09T17:19:16.785000Z
 RE-DC-CAM-01 | MV2 | camera-5-6-2 | dormant | 2026-03-09T17:21:29.122000Z
-RE-MLAB-MR28 | MR28 | wireless-32-1-7 | online | 2026-06-30T14:57:49.814000Z
+RE-MLAB-MR28 | MR28 | wireless-32-1-7 | online | 2026-06-30T16:16:37.721000Z
  | MT40 | mt-2-0-1 | dormant | 2026-03-15T17:23:01.634726Z
-RE-MLAB-MS120 | MS120-8FP | switch-17-2-2 | online | 2026-06-30T14:57:56.268000Z
+RE-MLAB-MS120 | MS120-8FP | switch-17-2-2 | online | 2026-06-30T16:16:46.127000Z
 
 --- Top Clients (24h) ---
-219d6954-9740-454d-8e21-5e4f77d5956e | 10.0.55.2 | 1.91 GB
+219d6954-9740-454d-8e21-5e4f77d5956e | 10.0.55.2 | 2.39 GB
 
 --- VPN Status ---
-VPN status: unavailable
+mode
+hubs
+subnets
+subnet

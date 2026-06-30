@@ -182,8 +182,8 @@ def print_top_clients(clients):
         )
 
 
-def get_vpn_statuses(api_key, org_id):
-    url = f"https://api.meraki.com/api/v1/organizations/{org_id}/appliance/vpn/statuses"
+def get_vpn_statuses(api_key, network_id):
+    url = f"https://api.meraki.com/api/v1/networks/{network_id}/appliance/vpn/siteToSiteVpn"
     headers = {"X-Cisco-Meraki-API-Key": api_key}
     response = requests.get(url, headers=headers)
     if response.status_code != 200:
@@ -220,7 +220,7 @@ if clients is None:
     print("Clients not found")
     exit()
 
-vpns = get_vpn_statuses(api_key, org_id)
+vpns = get_vpn_statuses(api_key, network_id)
 if vpns is None:
     print("VPN status: unavailable")
 else:
