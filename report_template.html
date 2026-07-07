@@ -1,0 +1,10 @@
+<html>
+<body>
+<h1>Meraki Health Report</h1>
+<ul>
+{% for status in statuses %}
+    <li>{{ status.name }} - {{ status.status }}</li>
+{% endfor %}
+</ul>
+</body>
+</html>
