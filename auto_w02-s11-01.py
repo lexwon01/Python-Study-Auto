@@ -226,7 +226,7 @@ def write_report_csv(statuses, filename):
 
 def format_device_line(status):
     flag = " *** OFFLINE ***" if status["status"] == "offline" else ""
-    return f"{status['name']} | {status['model']} | {status.get('firmware', 'Unknown')} | {status['status']} | {status['lastReportedAt']}{flag}"
+    return f"{status.get('name') or status.get('model')} | {status.get('firmware', 'Unknown')} | {status['status']} | {status['lastReportedAt']}{flag}"
 
 
 def format_client_line(client):
@@ -242,7 +242,7 @@ def format_vpn_subnet_line(subnet):
 
 
 def format_dormant_line(status):
-    return f"Device {status['name']} is DORMANT"
+    return f"Device {status.get('name') or status.get('model')} is DORMANT"
 
 
 org_id = get_org_id(api_key, org_id)
