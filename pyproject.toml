@@ -1,0 +1,9 @@
+[project]
+name = "python-study-auto"
+version = "0.1.0"
+requires-python = ">=3.13"
+dependencies = [
+    "jinja2>=3.1.6",
+    "netmiko>=4.7.0",
+    "textfsm>=2.1.0",
+]
