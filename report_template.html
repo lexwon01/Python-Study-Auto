@@ -3,7 +3,18 @@
 <h1>Meraki Health Report</h1>
 <ul>
 {% for status in statuses %}
-    <li>{{ status.name }} - {{ status.status }}</li>
+    <li>{{ status.name or status.model }} - {{ status.firmware }} - {{ status.status }}</li>
+{% endfor %}
+{% for hub in vpns.hubs %}
+    <li>Hub ID: {{ hub.hubId }}</li>
+{% endfor %}
+{% for subnet in vpns.subnets %}
+    <li>Local subnet: {{ subnet.localSubnet }} | In use: {{ subnet.useVpn }} </li>
+{% endfor %}
+{% for status in statuses %}
+  {% if status.status == 'dormant' %}  
+  <li>Device {{ status.name or status.model }} is DORMANT </li>
+  {% endif %}
 {% endfor %}
 </ul>
 </body>
