@@ -4,6 +4,7 @@ import os
 from datetime import datetime
 import csv
 from jinja2 import Environment, FileSystemLoader
+import yaml
 
 load_dotenv()
 
@@ -194,6 +195,42 @@ def get_vpn_statuses(api_key, network_id):
     return vpns
 
 
+def load_devices_yaml(file):
+    try:
+        if file.endswith(".yaml"):
+            with open(file) as f:
+                devices = yaml.safe_load(f)
+            return devices
+    except FileNotFoundError:
+        print(f"Error: {file} not found!")
+
+
+def filter_by_field(devices, field, value):
+
+    result = []
+
+    for device in devices:
+        if device[field] == value:
+            result.append(device)
+
+    return result
+
+
+def count_by_field(devices, field):
+    counts = {}
+
+    for device in devices:
+        dfield = device[field]
+
+        if dfield in counts:
+            counts[dfield] += 1
+
+        else:
+            counts[dfield] = 1
+
+    return counts
+
+
 def print_vpn_statuses(vpns):
     # print(f"{vpns['mode']} | {vpns['hubs']} | {vpns['subnets']}")
     print()
@@ -312,3 +349,12 @@ print_top_clients(clients)
 print_vpn_statuses(vpns)
 
 print_dormant_devices(statuses)
+
+yaml_devices = load_devices_yaml("devices.yaml")
+print(yaml_devices)
+
+filter_devices = filter_by_field(yaml_devices, "site", "Branch1")
+print(filter_devices)
+
+count_devices = count_by_field(yaml_devices, "type")
+print(count_devices)
