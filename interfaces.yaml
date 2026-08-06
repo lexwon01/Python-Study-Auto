@@ -1,0 +1,3 @@
+- hostname: SW-CORE-01
+  interface: Gi0/1
+  description: AP01
