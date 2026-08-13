@@ -1,0 +1,6 @@
+! SW-CORE-01
+interface Gi0/1
+ description AP01
+! SW-CORE-01
+interface Gi0/2
+ description Uplink to SW-ACCESS-02
